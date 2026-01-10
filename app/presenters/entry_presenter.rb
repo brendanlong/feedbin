@@ -213,7 +213,7 @@ class EntryPresenter < BasePresenter
   end
 
   def sanitized_title
-    @sanitized_title ||= @template.raw(@template.strip_tags(entry.title))
+    @sanitized_title ||= @template.raw(decoder.decode(@template.strip_tags(entry.title)))
   end
 
   def title?
